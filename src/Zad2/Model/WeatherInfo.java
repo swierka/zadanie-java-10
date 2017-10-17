@@ -1,3 +1,5 @@
+package Zad2.Model;
+
 public class WeatherInfo {
     private String city;
     private String description;

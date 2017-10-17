@@ -1,3 +1,5 @@
+package Zad3;
+
 public class ZadNr3 {
     public static void main(String[] args) {
         System.out.println("Jaki interfejs muszą	implementować	klasy,	których obiekty	chcemy	serializować?");

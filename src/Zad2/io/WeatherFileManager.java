@@ -1,3 +1,8 @@
+package Zad2.io;
+
+import Zad2.Model.WeatherInfo;
+import Zad2.db.WeatherData;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +47,8 @@ public class WeatherFileManager {
     //zapisywanie prognozy do pliku
     public void saveForecasts() {
         WeatherData weatherdata = new WeatherData();
-        List newForecasts = weatherdata.getForecast();
+        weatherdata.loop();
+        List<WeatherInfo> newForecasts = weatherdata.getForecast();
 
         try (
                 FileWriter fileWriter = new FileWriter(fileNameForecast);
@@ -57,51 +63,4 @@ public class WeatherFileManager {
             System.out.println("Wystapil blad podczas zapisywania pliku");
         }
     }
-
-
-/*   public void saveForecasts() {
-        List<String> forecasts = new ArrayList<>();
-
-        try (
-               FileOutputStream fis = new FileOutputStream(fileNameForecast);
-               ObjectOutputStream oos = new ObjectOutputStream(fis);
-        ) {
-            oos.writeObject(forecasts);
-        } catch (IOException e){
-            System.out.println("Wystapil blad podczas zapisywania pliku");
-        }
-    }*/
-
-    /* public List getCitiesFromFile() {
-
-        List<String> cities = new ArrayList<>();
-
-        try (
-                FileInputStream fis = new FileInputStream(fileNameCities);
-                ObjectInputStream ois = new ObjectInputStream(fis);
-        ) {
-            cities = (ArrayList<String>) ois.readObject();
-        } catch (
-                FileNotFoundException e)
-
-        {
-            System.out.println("Brak pliku");
-        } catch (
-                NullPointerException e)
-
-        {
-            System.out.println("Brak danych do wczytania");
-        } catch (
-                IOException e)
-
-        {
-            System.out.println("Blad podczas wczytywania danych");
-        } catch (
-                ClassNotFoundException e)
-
-        {
-            e.printStackTrace();
-        }
-        return cities;
-    }*/
 }

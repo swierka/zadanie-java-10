@@ -1,3 +1,7 @@
+package Zad2.App;
+
+import Zad2.db.WeatherApi;
+
 import java.io.IOException;
 
 public class WeatherApp {
